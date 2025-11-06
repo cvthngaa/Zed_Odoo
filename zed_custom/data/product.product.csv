@@ -1,0 +1,9 @@
+id,name,product_tmpl_id/id
+pp_coffee_beans,Hạt cà phê,product_coffee_beans
+pp_milk_condensed,Sữa đặc,product_milk_condensed
+pp_ice,Đá viên,product_ice
+pp_tea_black,Trà đen,product_tea_black
+pp_jam_peach,Mứt đào,product_jam_peach
+pp_lemongrass,Sả cây,product_lemongrass
+pp_matcha_powder,Bột matcha,product_matcha_powder
+pp_milk_fresh,Sữa tươi,product_milk_fresh

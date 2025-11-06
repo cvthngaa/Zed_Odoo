@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record id="view_zed_stock_move_list" model="ir.ui.view">
+      <field name="name">stock.move.list.zed</field>
+      <field name="model">stock.move</field>
+      <field name="inherit_id" ref="stock.view_move_tree"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='product_id']" position="after">
+          <field name="zed_source_order"/>
+          <field name="zed_is_consumption"/>
+        </xpath>
+      </field>
+    </record>
+  </data>
+</odoo>

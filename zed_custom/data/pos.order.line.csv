@@ -1,0 +1,3 @@
+id,order_id/id,product_id,qty,price_unit,sweetness,ice,allergy_note
+line_order_001_1,pos_order_001,Cà phê sữa đá,1,30000,normal,less_ice,
+line_order_002_1,pos_order_002,Trà đào cam sả,1,35000,less_sugar,normal,

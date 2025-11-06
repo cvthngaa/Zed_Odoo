@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="zed_custom.list">
+      <field name="name">zed_custom list</field>
+      <field name="model">zed_custom.zed_custom</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="zed_custom.action_window">
+      <field name="name">zed_custom window</field>
+      <field name="res_model">zed_custom.zed_custom</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="zed_custom.action_server">
+      <field name="name">zed_custom server</field>
+      <field name="model_id" ref="model_zed_custom_zed_custom"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="zed_custom" id="zed_custom.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="zed_custom.menu_1" parent="zed_custom.menu_root"/>
+    <menuitem name="Menu 2" id="zed_custom.menu_2" parent="zed_custom.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="zed_custom.menu_1_list" parent="zed_custom.menu_1"
+              action="zed_custom.action_window"/>
+    <menuitem name="Server to list" id="zed_custom" parent="zed_custom.menu_2"
+              action="zed_custom.action_server"/>
+-->
+  </data>
+</odoo>

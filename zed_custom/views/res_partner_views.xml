@@ -1,0 +1,22 @@
+<odoo>
+  <record id="view_partner_form_zed" model="ir.ui.view">
+    <field name="name">res.partner.form.zed</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form"/>
+    <field name="arch" type="xml">
+      <notebook position="inside">
+        <page string="The Zed">
+          <group>
+            <field name="is_member"/>
+            <field name="loyalty_points"/>
+          </group>
+          <group>
+            <field name="allergy_notes"/>
+            <field name="sweetness_pref"/>
+            <field name="ice_pref"/>
+          </group>
+        </page>
+      </notebook>
+    </field>
+  </record>
+</odoo>

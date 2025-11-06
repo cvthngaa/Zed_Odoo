@@ -1,0 +1,12 @@
+id,name,type,uom_id/id,list_price
+product_cafe_sua,Cà phê sữa đá,consu,uom.product_uom_unit,30000
+product_tra_dao,Trà đào cam sả,consu,uom.product_uom_unit,35000
+product_matcha,Matcha đá xay,consu,uom.product_uom_unit,40000
+product_coffee_beans,Hạt cà phê,consu,uom.product_uom_gram,0
+product_milk_condensed,Sữa đặc,consu,uom.product_uom_unit,0
+product_ice,Đá viên,consu,uom.product_uom_gram,0
+product_tea_black,Trà đen,consu,uom.product_uom_gram,0
+product_jam_peach,Mứt đào,consu,uom.product_uom_gram,0
+product_lemongrass,Sả cây,consu,uom.product_uom_gram,0
+product_matcha_powder,Bột matcha,consu,uom.product_uom_gram,0
+product_milk_fresh,Sữa tươi,consu,uom.product_uom_unit,0

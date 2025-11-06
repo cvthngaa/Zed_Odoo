@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <record id="product_template_search_zed" model="ir.ui.view">
+    <field name="name">product.template.search.zed</field>
+    <field name="model">product.template</field>
+    <field name="inherit_id" ref="product.product_template_search_view"/>
+    <field name="arch" type="xml">
+      <!-- 1) Thêm các filter sau filter cuối cùng để không phá thứ tự RNG -->
+      <xpath expr="//search/filter[last()]" position="after">
+        <filter name="zed_in_stock" string="Còn hàng" domain="[('qty_available','&gt;',0)]"/>
+        <filter name="zed_type_product" string="Hàng quản lý tồn" domain="[('type','=','product')]"/>
+        <filter name="zed_sale_ok" string="Đang bán" domain="[('sale_ok','=',True)]"/>
+      </xpath>
+
+      <!-- 2) Thêm group-by FILTER vào BÊN TRONG group sẵn có -->
+      <xpath expr="//search/group" position="inside">
+        <filter name="grp_type" string="Theo loại" context="{'group_by':'type'}"/>
+        <filter name="grp_categ" string="Theo danh mục" context="{'group_by':'categ_id'}"/>
+        <filter name="grp_creator" string="Theo người tạo" context="{'group_by':'create_uid'}"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>

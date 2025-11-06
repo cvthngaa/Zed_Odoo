@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+
+    <!-- List cho zed.recipe.line -->
+    <record id="view_zed_recipe_line_list" model="ir.ui.view">
+      <field name="name">zed.recipe.line.list</field>
+      <field name="model">zed.recipe.line</field>
+      <field name="arch" type="xml">
+        <list editable="bottom">
+          <field name="material_id" required="1"/>
+          <field name="qty" required="1" digits="[16,2]"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Form zed.recipe -->
+    <record id="view_zed_recipe_form" model="ir.ui.view">
+      <field name="name">zed.recipe.form</field>
+      <field name="model">zed.recipe</field>
+      <field name="arch" type="xml">
+        <form string="Công thức">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="product_tmpl_id"/>
+            </group>
+            <group string="Thành phần">
+              <!-- BỎ context gây lỗi active_id -->
+              <field name="line_ids">
+                <list editable="bottom">
+                  <field name="material_id" required="1"/>
+                  <field name="qty" required="1" digits="[16,2]"/>
+                </list>
+              </field>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- List zed.recipe (tùy chọn) -->
+    <record id="view_zed_recipe_list" model="ir.ui.view">
+      <field name="name">zed.recipe.list</field>
+      <field name="model">zed.recipe</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="product_tmpl_id"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Action mở Công thức -->
+    <record id="action_zed_recipe" model="ir.actions.act_window">
+      <field name="name">Công thức</field>
+      <field name="res_model">zed.recipe</field>
+      <field name="view_mode">list,form</field>
+      <field name="view_id" ref="view_zed_recipe_list"/>
+    </record>
+
+  </data>
+</odoo>

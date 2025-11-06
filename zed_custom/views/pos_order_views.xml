@@ -1,0 +1,45 @@
+<odoo>
+  <data>
+
+    <!-- Tạo list riêng cho pos.order.line -->
+    <record id="view_pos_order_line_list_zed" model="ir.ui.view">
+      <field name="name">pos.order.line.list.zed</field>
+      <field name="model">pos.order.line</field>
+      <field name="arch" type="xml">
+        <list editable="bottom">
+          <field name="display_name"/>
+          <field name="qty"/>
+          <field name="price_unit"/>
+          <field name="price_subtotal" optional="show"/>
+          <field name="sweetness"/>
+          <field name="ice"/>
+          <field name="allergy_note"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Kế thừa form pos.order: thêm tab Loyalty + ép lines dùng list ở trên -->
+    <record id="view_pos_order_form_zed" model="ir.ui.view">
+      <field name="name">pos.order.form.zed</field>
+      <field name="model">pos.order</field>
+      <field name="inherit_id" ref="point_of_sale.view_pos_pos_form"/>
+      <field name="arch" type="xml">
+        <!-- Thêm tab Loyalty -->
+        <xpath expr="//sheet//notebook" position="inside">
+          <page string="Zed Loyalty">
+            <group>
+              <field name="member_used" readonly="1"/>
+              <field name="earned_points" readonly="1"/>
+            </group>
+          </page>
+        </xpath>
+
+        <!-- Ép One2many 'lines' dùng list mình tạo -->
+        <xpath expr="//field[@name='lines']" position="attributes">
+          <attribute name="context">{'list_view_ref': 'zed_custom.view_pos_order_line_list_zed'}</attribute>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</odoo>

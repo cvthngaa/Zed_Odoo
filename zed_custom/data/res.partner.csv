@@ -1,0 +1,4 @@
+id,name,is_member,loyalty_points,sweetness_pref,ice_pref
+partner_nga,Cao Vũ Thu Nga,True,120,normal,less_ice
+partner_quyen,Lý Hoàng Quyên,True,80,less_sugar,normal
+partner_toan,Nguyễn Thị Toàn,False,0,normal,normal

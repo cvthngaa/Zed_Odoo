@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+  <!-- 1) Inherit TREE chung của stock.move (không có quantity_done) -->
+  <record id="view_zed_move_tree_inherit" model="ir.ui.view">
+    <field name="name">stock.move.tree.zed.inherit</field>
+    <field name="model">stock.move</field>
+    <field name="inherit_id" ref="stock.view_move_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='product_id']" position="after">
+        <field name="product_uom" string="Đơn vị"/>
+        <field name="product_uom_qty" string="Số lượng yêu cầu"/>
+        <!-- Không chèn quantity_done ở view này vì model không có field -->
+      </xpath>
+    </field>
+  </record>
+
+  <!-- 2) Inherit TREE trong Picking (tab Operations) -->
+  <record id="view_zed_move_picking_tree_inherit" model="ir.ui.view">
+    <field name="name">stock.move.picking.tree.zed.inherit</field>
+    <field name="model">stock.move</field>
+    <field name="inherit_id" ref="stock.view_move_tree"/>
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='product_id']" position="after">
+        <field name="product_uom" string="Đơn vị"/>
+        <field name="product_uom_qty" string="Số lượng yêu cầu"/>
+        <!-- Ở picking form, cột “Done” dùng field quantity -->
+        <field name="quantity" string="Đã trừ kho"/>
+      </xpath>
+    </field>
+  </record>
+
+</odoo>

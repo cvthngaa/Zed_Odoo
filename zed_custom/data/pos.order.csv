@@ -1,0 +1,3 @@
+id,name,partner_id/id,member_used/id,earned_points,state,amount_total
+pos_order_001,Order 001,partner_nga,partner_nga,10,paid,30000
+pos_order_002,Order 002,partner_quyen,partner_quyen,12,paid,35000

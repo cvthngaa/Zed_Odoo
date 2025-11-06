@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zed_recipe,access_zed_recipe,model_zed_recipe,base.group_user,1,1,1,1
+access_zed_recipe_line,access_zed_recipe_line,model_zed_recipe_line,base.group_user,1,1,1,1

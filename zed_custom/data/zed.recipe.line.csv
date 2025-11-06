@@ -1,0 +1,10 @@
+id,recipe_id/id,material_id,qty
+line_cafe_cf,recipe_cafe_sua,Hạt cà phê,30
+line_cafe_sua,recipe_cafe_sua,Sữa đặc,1
+line_cafe_da,recipe_cafe_sua,Đá viên,100
+line_tra_tra,recipe_tra_dao,Trà đen,10
+line_tra_mdt,recipe_tra_dao,Mứt đào,30
+line_tra_sa,recipe_tra_dao,Sả cây,5
+line_matcha_bm,recipe_matcha,Bột matcha,20
+line_matcha_suatuoi,recipe_matcha,Sữa tươi,1
+line_matcha_da,recipe_matcha,Đá viên,150
