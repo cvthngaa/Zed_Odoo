@@ -1,62 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-  <data>
+  <data noupdate="0">
 
-    <!-- List cho zed.recipe.line -->
-    <record id="view_zed_recipe_line_list" model="ir.ui.view">
-      <field name="name">zed.recipe.line.list</field>
-      <field name="model">zed.recipe.line</field>
+    <!-- LIST VIEW: Danh sách Công thức (BoM) -->
+    <record id="view_zed_bom_list" model="ir.ui.view">
+      <field name="name">mrp.bom.list.zed</field>
+      <field name="model">mrp.bom</field>
       <field name="arch" type="xml">
-        <list editable="bottom">
-          <field name="material_id" required="1"/>
-          <field name="qty" required="1" digits="[16,2]"/>
+        <list string="Công thức (BoM)">
+          <field name="product_tmpl_id" string="Sản phẩm"/>
+          <field name="code" string="Mã công thức"/>
+          <field name="product_qty" string="SL thành phẩm"/>
+          <field name="product_uom_id" string="ĐVT"/>
+          <field name="type" string="Loại"/>
         </list>
       </field>
     </record>
 
-    <!-- Form zed.recipe -->
-    <record id="view_zed_recipe_form" model="ir.ui.view">
-      <field name="name">zed.recipe.form</field>
-      <field name="model">zed.recipe</field>
+    <!-- (TÙY CHỌN) SEARCH VIEW: lọc theo sản phẩm/mã -->
+    <record id="view_zed_bom_search" model="ir.ui.view">
+      <field name="name">mrp.bom.search.zed</field>
+      <field name="model">mrp.bom</field>
       <field name="arch" type="xml">
-        <form string="Công thức">
-          <sheet>
-            <group>
-              <field name="name"/>
-              <field name="product_tmpl_id"/>
-            </group>
-            <group string="Thành phần">
-              <!-- BỎ context gây lỗi active_id -->
-              <field name="line_ids">
-                <list editable="bottom">
-                  <field name="material_id" required="1"/>
-                  <field name="qty" required="1" digits="[16,2]"/>
-                </list>
-              </field>
-            </group>
-          </sheet>
-        </form>
+        <search string="Tìm công thức">
+          <field name="product_tmpl_id" string="Sản phẩm"/>
+          <field name="code" string="Mã công thức"/>
+          <filter name="by_product" string="Có sản phẩm"
+                  domain="[('product_tmpl_id','!=',False)]"/>
+        </search>
       </field>
     </record>
 
-    <!-- List zed.recipe (tùy chọn) -->
-    <record id="view_zed_recipe_list" model="ir.ui.view">
-      <field name="name">zed.recipe.list</field>
-      <field name="model">zed.recipe</field>
+    <!-- FORM VIEW (INHERIT): chỉ thêm nhãn hiển thị, không dùng <label for=...> -->
+    <record id="view_zed_bom_form_inherit" model="ir.ui.view">
+      <field name="name">mrp.bom.form.zed.inherit</field>
+      <field name="model">mrp.bom</field>
+      <field name="inherit_id" ref="mrp.mrp_bom_form_view"/>
       <field name="arch" type="xml">
-        <list>
-          <field name="name"/>
-          <field name="product_tmpl_id"/>
-        </list>
+        <!-- Thêm một nhãn đẹp trong tab Components, tránh lỗi label/for -->
+        <xpath expr="//sheet/notebook/page[@name='components']" position="inside">
+          <div class="o_form_label">Danh sách nguyên liệu của công thức này</div>
+        </xpath>
       </field>
     </record>
 
-    <!-- Action mở Công thức -->
-    <record id="action_zed_recipe" model="ir.actions.act_window">
-      <field name="name">Công thức</field>
-      <field name="res_model">zed.recipe</field>
+    <!-- GẮN VIEW VÀO ACTION CÓ SẴN (nếu bạn đã khai báo action_zed_bom ở menu_root.xml) -->
+    <record id="action_zed_bom" model="ir.actions.act_window">
+      <field name="name">Công thức (BoM)</field>
+      <field name="res_model">mrp.bom</field>
       <field name="view_mode">list,form</field>
-      <field name="view_id" ref="view_zed_recipe_list"/>
+      <field name="search_view_id" ref="view_zed_bom_search"/>
+      <field name="view_id" ref="view_zed_bom_list"/>
+      <!-- Không set domain/context để giữ hành vi mặc định của BoM -->
     </record>
 
   </data>

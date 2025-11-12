@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
+  <data>
 
-  <!-- 1) Inherit TREE chung của stock.move (không có quantity_done) -->
-  <record id="view_zed_move_tree_inherit" model="ir.ui.view">
-    <field name="name">stock.move.tree.zed.inherit</field>
-    <field name="model">stock.move</field>
-    <field name="inherit_id" ref="stock.view_move_tree"/>
-    <field name="arch" type="xml">
-      <xpath expr="//field[@name='product_id']" position="after">
-        <field name="product_uom" string="Đơn vị"/>
-        <field name="product_uom_qty" string="Số lượng yêu cầu"/>
-        <!-- Không chèn quantity_done ở view này vì model không có field -->
-      </xpath>
-    </field>
-  </record>
+    <!-- ACTION: mở danh sách Phiếu tiêu hao -->
+    <record id="action_zed_picking_consume" model="ir.actions.act_window">
+      <field name="name">Phiếu tiêu hao</field>
+      <field name="res_model">stock.picking</field>
+      <field name="view_mode">list,form</field>
+      <field name="domain">[('zed_move_type','=','consume')]</field>
+      <field name="context">{'default_zed_move_type':'consume'}</field>
+      <field name="search_view_id" ref="stock.view_picking_internal_search"/>
+    </record>
 
-  <!-- 2) Inherit TREE trong Picking (tab Operations) -->
-  <record id="view_zed_move_picking_tree_inherit" model="ir.ui.view">
-    <field name="name">stock.move.picking.tree.zed.inherit</field>
-    <field name="model">stock.move</field>
-    <field name="inherit_id" ref="stock.view_move_tree"/>
-    <field name="arch" type="xml">
-      <xpath expr="//field[@name='product_id']" position="after">
-        <field name="product_uom" string="Đơn vị"/>
-        <field name="product_uom_qty" string="Số lượng yêu cầu"/>
-        <!-- Ở picking form, cột “Done” dùng field quantity -->
-        <field name="quantity" string="Đã trừ kho"/>
-      </xpath>
-    </field>
-  </record>
+    <!-- MENU -->
+    <menuitem id="menu_zed_picking_consume"
+              name="Phiếu tiêu hao"
+              parent="menu_zed_root"
+              action="action_zed_picking_consume"
+              sequence="50"/>
 
+    <!-- FORM kế thừa Picking; dùng cú pháp mới: invisible="zed_move_type != 'consume'" -->
+    <record id="view_zed_picking_form_consume" model="ir.ui.view">
+      <field name="name">stock.picking.form.zed.consume</field>
+      <field name="model">stock.picking</field>
+      <field name="inherit_id" ref="stock.view_picking_form"/>
+      <field name="arch" type="xml">
+        <xpath expr="//sheet" position="inside">
+          <!-- giữ field ẩn để điều kiện hoạt động -->
+          <field name="zed_move_type" invisible="1"/>
+
+          <group string="ZED INFO" invisible="zed_move_type != 'consume'">
+            <field name="zed_move_type" readonly="1"/>
+            <field name="zed_pos_order_id" readonly="1"/>
+            <field name="zed_barista_id" readonly="1"/>
+            <field name="zed_shift_note"/>
+          </group>
+        </xpath>
+      </field>
+    </record>
+
+  </data>
 </odoo>

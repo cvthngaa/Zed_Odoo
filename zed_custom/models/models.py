@@ -1,38 +1,19 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields
 
-# =========================
-#  ZED RECIPE (CÔNG THỨC)
-# =========================
-class ZedRecipe(models.Model):
-    _name = "zed.recipe"
-    _description = "Công thức đồ uống The Zed"
-
-    name = fields.Char("Tên công thức", required=True)
-    product_tmpl_id = fields.Many2one(
-        "product.template", string="Sản phẩm (đồ uống)", ondelete="cascade", index=True
-    )
-    line_ids = fields.One2many("zed.recipe.line", "recipe_id", string="Thành phần")
-
-
-class ZedRecipeLine(models.Model):
-    _name = "zed.recipe.line"
-    _description = "Thành phần công thức The Zed"
-
-    recipe_id = fields.Many2one("zed.recipe", string="Công thức", ondelete="cascade", required=True)
-    material_id = fields.Many2one("product.product", string="Nguyên liệu", required=True)
-    qty = fields.Float(
-        "Số lượng",
-        default=1.0,
-        required=True,
-        help="Số lượng nguyên liệu cho 1 đơn vị đồ uống. Dùng UoM mặc định của nguyên liệu.",
-    )
-
-
+# ===============================
+#  PRODUCT.TEMPLATE (ZED)
+# ===============================
 class ProductTemplate(models.Model):
     _inherit = "product.template"
 
-    zed_recipe_id = fields.Many2one("zed.recipe", string="Công thức chính (ZED)")
+    # Dùng BoM theo template (fallback)
+    zed_recipe_id = fields.Many2one(
+        "mrp.bom",
+        string="BoM (Zed)",
+        domain="[('product_tmpl_id', '=', id)]",
+        help="BoM chung cho template. Nếu biến thể có BoM riêng thì sẽ ưu tiên BoM biến thể.",
+    )
     zed_type = fields.Selection(
         [
             ("ingredient", "Nguyên liệu"),
@@ -43,6 +24,44 @@ class ProductTemplate(models.Model):
         default="finished",
     )
     low_stock_threshold = fields.Float("Ngưỡng cảnh báo tồn (Zed)", default=0.0)
+
+
+# ===============================
+#  PRODUCT.PRODUCT (ZED) – BoM theo BIẾN THỂ
+# ===============================
+class ProductProduct(models.Model):
+    _inherit = "product.product"
+
+    # BoM ở cấp biến thể (ưu tiên dùng)
+    zed_recipe_id = fields.Many2one(
+        "mrp.bom",
+        string="BoM (Zed) - Variant",
+        domain="[('product_id', '=', id)]",
+        help="Nếu có, POS sẽ tiêu hao theo BoM của biến thể này. Nếu trống sẽ fallback BoM của template.",
+    )
+
+    def zed_get_bom(self):
+        """Trả về BoM ưu tiên:
+        1) mrp.bom gắn trực tiếp vào product.product (field zed_recipe_id hoặc search product_id)
+        2) mrp.bom gắn vào product.template (field zed_recipe_id hoặc search theo product_tmpl_id)
+        """
+        self.ensure_one()
+        Bom = self.env["mrp.bom"]
+        # 1) BoM set tay cho biến thể
+        if self.zed_recipe_id:
+            return self.zed_recipe_id
+        # 1b) Search theo product_id
+        bom = Bom.search([("product_id", "=", self.id)], limit=1)
+        if bom:
+            return bom
+        # 2) BoM set tay cho template
+        if self.product_tmpl_id.zed_recipe_id:
+            return self.product_tmpl_id.zed_recipe_id
+        # 2b) Search theo template (BoM chung)
+        return Bom.search(
+            [("product_tmpl_id", "=", self.product_tmpl_id.id), ("product_id", "=", False)],
+            limit=1,
+        )
 
 
 # ===============================
@@ -93,9 +112,9 @@ class ResPartner(models.Model):
 class PosOrder(models.Model):
     _inherit = "pos.order"
 
-    # Giữ để khớp với pos_order_views.xml
     member_used = fields.Many2one("res.partner", string="Thành viên sử dụng")
     earned_points = fields.Integer("Điểm thưởng nhận được", default=0)
+
 
 # ===============================
 #  POS ORDER LINE

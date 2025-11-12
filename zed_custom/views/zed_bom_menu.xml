@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <!-- ACTION -->
+  <record id="action_zed_product_with_bom" model="ir.actions.act_window">
+    <field name="name">Công thức theo Sản phẩm</field>
+    <field name="res_model">product.template</field>
+    <field name="view_mode">list,form</field>
+    <field name="context">{'search_default_has_bom': 1}</field>
+  </record>
+
+  <!-- MENU -->
+  <menuitem id="menu_zed_product_with_bom"
+            name="Công thức theo Sản phẩm"
+            parent="menu_zed_root"
+            action="action_zed_product_with_bom"
+            sequence="45"/>
+</odoo>

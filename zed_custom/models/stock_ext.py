@@ -1,74 +1,80 @@
 # -*- coding: utf-8 -*-
-from odoo import models, api, _
+from odoo import models, _
+from odoo.exceptions import UserError
+
 
 class StockPicking(models.Model):
-    _inherit = "stock.picking"
+    _inherit = 'stock.picking'
 
-    @api.model
-    def zed_create_consumption(self, lines, company=None, barista=None, pos_order=None, note=None):
-        """Tạo 1 picking 'tiêu hao nguyên liệu' từ danh sách dòng nguyên liệu.
-        lines: [{'product_id': int, 'qty': float}, ...]
+    def zed_create_consumption(self, lines, company, barista=False, pos_order=False, note=False):
         """
-        StockLocation = self.env['stock.location']
-        Move = self.env['stock.move']
-        company = company or self.env.company
+        Tạo phiếu tiêu hao (internal) và tự xác nhận -> Done.
+        :param lines: [{'product_id': int, 'qty': float}] (uom = product.uom_id)
+        """
+        if not lines:
+            return False
 
-        # Nguồn: internal; Đích: scrap hoặc inventory (tiêu hao)
-        src = StockLocation.search([('usage', '=', 'internal'), ('company_id', 'in', [company.id, False])], limit=1)
-        dest = StockLocation.search([('scrap_location', '=', True), ('company_id', 'in', [company.id, False])], limit=1) \
-            or StockLocation.search([('usage', '=', 'inventory'), ('company_id', 'in', [company.id, False])], limit=1)
+        # 1) Lấy Operation Type cho internal (Internal Transfers)
+        # Mặc định external id: 'stock.picking_type_internal'
+        consume_type = self.env.ref('stock.picking_type_internal', raise_if_not_found=False)
+        if not consume_type:
+            consume_type = self.env['stock.picking.type'].search([('code', '=', 'internal')], limit=1)
+        if not consume_type:
+            raise UserError(_("Không tìm thấy Operation Type (internal) để tạo phiếu tiêu hao."))
 
-        picking_type = self.env['stock.picking.type'].search([
-            ('code', '=', 'internal'),
-            ('warehouse_id.company_id', 'in', [company.id, False])
-        ], limit=1)
+        # 2) Xác định location nguồn/đích
+        src = consume_type.default_location_src_id or self.env['stock.location'].search([('usage', '=', 'internal')], limit=1)
+        dest = consume_type.default_location_dest_id \
+               or self.env['stock.location'].search([('scrap_location', '=', True)], limit=1) \
+               or self.env['stock.location'].search([('usage', '=', 'inventory')], limit=1)
+        if not (src and dest):
+            raise UserError(_("Thiếu Location internal hoặc scrap/inventory để tạo phiếu tiêu hao."))
 
+        # 3) Tạo picking
         picking_vals = {
-            'picking_type_id': picking_type.id if picking_type else False,
-            'location_id': src.id if src else False,
-            'location_dest_id': dest.id if dest else False,
-            'origin': pos_order and f"POS {pos_order.name}" or "ZED-CONSUME",
-            'note': note or False,
             'company_id': company.id,
+            'picking_type_id': consume_type.id,
+            'location_id': src.id,
+            'location_dest_id': dest.id,
+            'origin': pos_order.name if pos_order else (note or _('Zed Consumption')),
+            'note': note or False,
+            'zed_move_type': 'consume',
+            'zed_pos_order_id': pos_order.id if pos_order else False,
         }
-        # field tùy biến nếu có
-        if 'zed_move_type' in self._fields:
-            picking_vals['zed_move_type'] = 'consume'
-        if 'zed_pos_order_id' in self._fields and pos_order:
-            picking_vals['zed_pos_order_id'] = pos_order.id
-        if 'zed_barista_id' in self._fields and barista:
-            picking_vals['zed_barista_id'] = barista.id
-
         picking = self.create(picking_vals)
 
-        move_vals = []
+        # 4) Tạo move cho từng nguyên liệu
+        Move = self.env['stock.move']
         for item in lines:
-            prod = self.env['product.product'].browse(item['product_id'])
-            qty = float(item['qty'])
-            if qty <= 0 or not prod:
+            product = self.env['product.product'].browse(int(item['product_id']))
+            qty = float(item.get('qty') or 0.0)
+            if not product or qty <= 0:
                 continue
-            mv = {
-                'name': f"[CONSUME] {prod.display_name}",
-                'product_id': prod.id,
-                'product_uom': prod.uom_id.id,
-                'product_uom_qty': qty,
-                'quantity_done': qty,
-                'location_id': picking.location_id.id,
-                'location_dest_id': picking.location_dest_id.id,
-                'picking_id': picking.id,
+
+            Move.create({
+                'description_picking': product.display_name,
                 'company_id': company.id,
-            }
-            if 'zed_is_consumption' in Move._fields:
-                mv['zed_is_consumption'] = True
-            if 'zed_source_order' in Move._fields and pos_order:
-                mv['zed_source_order'] = pos_order.id
-            move_vals.append(mv)
+                'product_id': product.id,
+                'product_uom': product.uom_id.id,
+                'product_uom_qty': qty,           # demand
+                'location_id': src.id,
+                'location_dest_id': dest.id,
+                'picking_id': picking.id,
+            })
 
-        if move_vals:
-            Move.create(move_vals)
-
-        # Xác nhận & hoàn tất
+        # 5) Xác nhận & hoàn tất
         picking.action_confirm()
         picking.action_assign()
+
+        # Đảm bảo có qty_done trước khi validate
+        # (điền cho cả move và move line cho chắc trên Odoo 19)
+        for move in picking.move_ids_without_package:
+            if not move.quantity_done:
+                move.quantity_done = move.product_uom_qty
+        for ml in picking.move_line_ids:
+            if not ml.qty_done:
+                # move line đã được tạo với product_uom_qty sau action_assign
+                ml.qty_done = ml.product_uom_qty
+
         picking.button_validate()
         return picking

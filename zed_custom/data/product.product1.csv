@@ -1,0 +1,93 @@
+id,name,default_code,product_tmpl_id/id
+pp_ing_cafe,Cốt Cà Phê,ING_CAFE,ing_cafe
+pp_ing_sua_tuoi,Sữa Tươi,ING_SUA_TUOI,ing_sua_tuoi
+pp_ing_sua_dac,Sữa Đặc,ING_SUA_DAC,ing_sua_dac
+pp_ing_cot_dua,Cốt Dừa,ING_COT_DUA,ing_cot_dua
+pp_ing_duong_trang,Đường Trắng (siro),ING_DUONG_TRANG,ing_duong_trang
+pp_ing_duong_den,Đường Đen (siro),ING_DUONG_DEN,ing_duong_den
+pp_ing_mat_ong,Mật Ong,ING_MAT_ONG,ing_mat_ong
+pp_ing_nuoc_loc,Nước Lọc,ING_NUOC_LOC,ing_nuoc_loc
+pp_ing_tra_nhai,Trà Nhài (cốt),ING_TRA_NHAI,ing_tra_nhai
+pp_ing_hong_tra,Hồng Trà (cốt),ING_HONG_TRA,ing_hong_tra
+pp_ing_tra_mang_cau,Trà Mãng Cầu (cốt),ING_TRA_MANG_CAU,ing_tra_mang_cau
+pp_ing_tra_thai_xanh,Trà Thái Xanh (cốt),ING_TRA_THAI_XANH,ing_tra_thai_xanh
+pp_ing_tra_dao,Trà Đào (cốt),ING_TRA_DAO,ing_tra_dao
+pp_ing_nuoc_cot_chanh,Nước Cốt Chanh,ING_NUOC_COT_CHANH,ing_nuoc_cot_chanh
+pp_ing_nuoc_cot_quat,Nước Cốt Tắc,ING_NUOC_COT_QUAT,ing_nuoc_cot_quat
+pp_ing_monin_bac_ha,Monin Bạc Hà,ING_MONIN_BAC_HA,ing_monin_bac_ha
+pp_ing_monin_dao,Monin Đào,ING_MONIN_DAO,ing_monin_dao
+pp_ing_sinh_to_xoai,Sinh Tố Xoài,ING_SINH_TO_XOAI,ing_sinh_to_xoai
+pp_ing_muc_dau,Mứt Dâu,ING_MUC_DAU,ing_muc_dau
+pp_ing_muc_viet_quat,Mứt Việt Quất,ING_MUC_VIET_QUAT,ing_muc_viet_quat
+pp_ing_muc_dua_luoi,Mứt Dưa Lưới,ING_MUC_DUA_LUOI,ing_muc_dua_luoi
+pp_ing_siro_sam_dua,Siro Sâm Dứa,ING_SIRO_SAM_DUA,ing_siro_sam_dua
+pp_ing_ding_dong,Siro Ding Dong,ING_DING_DONG,ing_ding_dong
+pp_ing_rich_lun,Rich Lùn,ING_RICH_LUN,ing_rich_lun
+pp_ing_rich_cao,Rich Cao,ING_RICH_CAO,ing_rich_cao
+pp_ing_base_kem,Base Kem,ING_BASE_KEM,ing_base_kem
+pp_ing_ehot,Ehot,ING_EHOT,ing_ehot
+pp_ing_rick,Rick,ING_RICK,ing_rick
+pp_ing_cot_chanh_day,Cốt Chanh Dây,ING_COT_CHANH_DAY,ing_cot_chanh_day
+pp_ing_sua_chua,Sữa Chua Hũ,ING_SUA_CHUA,ing_sua_chua
+pp_ing_cacao_bot,Bột Cacao,ING_CACAO_BOT,ing_cacao_bot
+pp_ing_bot_beo,Bột Béo,ING_BOT_BEO,ing_bot_beo
+pp_ing_bot_mix,Bột Mix,ING_BOT_MIX,ing_bot_mix
+pp_ing_bot_matcha,Bột Matcha,ING_BOT_MATCHA,ing_bot_matcha
+pp_ing_quat_trai,Tắc (trái),ING_QUAT_TRAI,ing_quat_trai
+pp_ing_cam_trai,Cam (trái),ING_CAM_TRAI,ing_cam_trai
+pp_ing_dau_trai,Dâu (trái),ING_DAU_TRAI,ing_dau_trai
+pp_ing_xi_muoi,Xí Muội (viên),ING_XI_MUOI,ing_xi_muoi
+pp_ing_trai_vai,Vải (trái),ING_TRAI_VAI,ing_trai_vai
+pp_ing_tran_chau_den_song,Trân Châu Đen (sống),ING_TRAN_CHAU_DEN_SONG,ing_tran_chau_den_song
+pp_ing_tran_chau_den_chin,Trân Châu Đen (đã nấu),ING_TRAN_CHAU_DEN_CHIN,ing_tran_chau_den_chin
+pp_ing_nha_dam,Nha Đam,ING_NHA_DAM,ing_nha_dam
+pp_ing_cacao_rac,Bột Cacao Rắc,ING_CACAO_RAC,ing_cacao_rac
+pp_sf_kem_dau,Kem Dâu,SF_KEM_DAU,sf_kem_dau
+pp_sf_kem_muoi,Kem Muối,SF_KEM_MUOI,sf_kem_muoi
+pp_sf_nuoc_duong,Nước Đường,SF_NUOC_DUONG,sf_nuoc_duong
+pp_sf_tran_chau_den,Trân Châu Đen (đã nấu),SF_TRAN_CHAU_DEN,sf_tran_chau_den
+pp_sf_base_tra_nhai,Base Trà Nhài,SF_BASE_TRA_NHAI,sf_base_tra_nhai
+pp_sf_base_hong_tra,Base Hồng Trà,SF_BASE_HONG_TRA,sf_base_hong_tra
+pp_sf_base_tra_mang_cau,Base Trà Mãng Cầu,SF_BASE_TRA_MANG_CAU,sf_base_tra_mang_cau
+pp_sf_base_thai_xanh,Base Trà Thái Xanh,SF_BASE_THAI_XANH,sf_base_thai_xanh
+pp_sf_base_tra_dao,Base Trà Đào,SF_BASE_TRA_DAO,sf_base_tra_dao
+pp_sf_cafe_phin,Cốt Cà Phê Phin,SF_CAFE_PHIN,sf_cafe_phin
+pp_fp_caphe_den,Cà Phê Đen,FP_CAPHE_DEN,fp_caphe_den
+pp_fp_caphe_den_sg,Cà Phê Đen Sài Gòn,FP_CAPHE_DEN_SG,fp_caphe_den_sg
+pp_fp_caphe_sua,Cà Phê Sữa,FP_CAPHE_SUA,fp_caphe_sua
+pp_fp_caphe_sua_sg,Cà Phê Sữa Sài Gòn,FP_CAPHE_SUA_SG,fp_caphe_sua_sg
+pp_fp_bac_xiu_da,Bạc Xỉu Đá,FP_BAC_XIU_DA,fp_bac_xiu_da
+pp_fp_caphe_muoi,Cà Phê Muối,FP_CAPHE_MUOI,fp_caphe_muoi
+pp_fp_caphe_dua,Cà Phê Dừa,FP_CAPHE_DUA,fp_caphe_dua
+pp_fp_sua_chua_lac_tt,Sữa Chua Lắc Truyền Thống,FP_SUA_CHUA_LAC_TT,fp_sua_chua_lac_tt
+pp_fp_sua_chua_tc_dd,Sữa Chua Trân Châu Đường Đen,FP_SUA_CHUA_TC_DD,fp_sua_chua_tc_dd
+pp_fp_sua_chua_lac_cac_vi,Sữa Chua Lắc Các Vị,FP_SUA_CHUA_LAC_CAC_VI,fp_sua_chua_lac_cac_vi
+pp_fp_sua_chua_lac_dau,Sữa Chua Lắc Dâu,FP_SUA_CHUA_LAC_DAU,fp_sua_chua_lac_dau
+pp_fp_tra_chanh_nhua,Trà Chanh (Ly Nhựa),FP_TRA_CHANH_NHUA,fp_tra_chanh_nhua
+pp_fp_tra_chanh_size_l,Trà Chanh (Size L),FP_TRA_CHANH_SIZE_L,fp_tra_chanh_size_l
+pp_fp_kim_quat_nha_dam,Kim Quất Nha Đam,FP_KIM_QUAT_NHA_DAM,fp_kim_quat_nha_dam
+pp_fp_chanh_tuoi_da,Chanh Tươi Đá,FP_CHANH_TUOI_DA,fp_chanh_tuoi_da
+pp_fp_chanh_day_lac_sua,Chanh Dây Lắc Sữa,FP_CHANH_DAY_LAC_SUA,fp_chanh_day_lac_sua
+pp_fp_tra_dao_tt,Trà Đào Truyền Thống,FP_TRA_DAO_TT,fp_tra_dao_tt
+pp_fp_tra_quat_bac_ha,Trà Quất Lắc Bạc Hà,FP_TRA_QUAT_BAC_HA,fp_tra_quat_bac_ha
+pp_fp_tra_quat_xi_muoi,Trà Quất Xí Muội,FP_TRA_QUAT_XI_MUOI,fp_tra_quat_xi_muoi
+pp_fp_chanh_tuoi_xi_muoi,Chanh Tươi Xí Muội,FP_CHANH_TUOI_XI_MUOI,fp_chanh_tuoi_xi_muoi
+pp_fp_tra_viet_quat_lac_sua,Trà Việt Quất Lắc Sữa,FP_TRA_VIET_QUAT_LAC_SUA,fp_tra_viet_quat_lac_sua
+pp_fp_tra_dua_luoi_lac_sua,Trà Dưa Lưới Lắc Sữa,FP_TRA_DUA_LUOI_LAC_SUA,fp_tra_dua_luoi_lac_sua
+pp_fp_tra_vai,Trà Vải,FP_TRA_VAI,fp_tra_vai
+pp_fp_tra_mang_cau,Trà Mãng Cầu,FP_TRA_MANG_CAU,fp_tra_mang_cau
+pp_fp_tra_xoai_cam_my,Trà Xoài Cam Mỹ,FP_TRA_XOAI_CAM_MY,fp_tra_xoai_cam_my
+pp_fp_tra_thanh_xuan,Trà Thanh Xuân,FP_TRA_THANH_XUAN,fp_tra_thanh_xuan
+pp_fp_tra_dao_cam_sa,Trà Đào Cam Sả,FP_TRA_DAO_CAM_SA,fp_tra_dao_cam_sa
+pp_fp_tra_viet_quat_nha_dam,Trà Việt Quất Nha Đam,FP_TRA_VIET_QUAT_NHA_DAM,fp_tra_viet_quat_nha_dam
+pp_fp_cam_dao_dua_luoi,Cam Đào Dưa Lưới,FP_CAM_DAO_DUA_LUOI,fp_cam_dao_dua_luoi
+pp_fp_sua_tuoi_tc_dd,Sữa Tươi Trân Châu Đường Đen,FP_SUA_TUOI_TC_DD,fp_sua_tuoi_tc_dd
+pp_fp_sua_tuoi_tc_bac_ha,Sữa Tươi Trân Châu Bạc Hà,FP_SUA_TUOI_TC_BAC_HA,fp_sua_tuoi_tc_bac_ha
+pp_fp_sua_dua_nhiet_doi,Sữa Dừa Nhiệt Đới,FP_SUA_DUA_NHIET_DOI,fp_sua_dua_nhiet_doi
+pp_fp_sam_dua_lac_tc_trang,Sâm Dứa Lắc Trân Châu Trắng,FP_SAM_DUA_LAC_TC_TRANG,fp_sam_dua_lac_tc_trang
+pp_fp_cot_dua_xoai,Cốt Dừa Xoài (Đá Xay),FP_COT_DUA_XOAI,fp_cot_dua_xoai
+pp_fp_cot_dua_cacao,Cốt Dừa Cacao (Đá Xay),FP_COT_DUA_CACAO,fp_cot_dua_cacao
+pp_fp_tra_sua_thai_xanh,Trà Sữa Thái Xanh,FP_TRA_SUA_THAI_XANH,fp_tra_sua_thai_xanh
+pp_fp_matcha_da_xay,Matcha Đá Xay,FP_MATCHA_DA_XAY,fp_matcha_da_xay
+pp_fp_dau_lac_sua,Dâu Lắc Sữa,FP_DAU_LAC_SUA,fp_dau_lac_sua
+pp_fp_da_xay_viet_quat,Đá Xay Việt Quất,FP_DA_XAY_VIET_QUAT,fp_da_xay_viet_quat

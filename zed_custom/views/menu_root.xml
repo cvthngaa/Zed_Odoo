@@ -3,29 +3,25 @@
   <data noupdate="0">
 
     <!-- App root: The Zed -->
-    <menuitem id="menu_zed_root" name="The Zed" sequence="60"/>
+    <menuitem id="menu_zed_root" name="The Zed" sequence="5"/>
 
-    <!-- (A) Re-parent các menu đã có sẵn ở file khác về dưới The Zed -->
-    <!-- Nếu trước đó đã tạo menu 'menu_zed_picking_consume' ở stock_picking_views.xml,
-         chỉ cần re-parent bằng menuitem, KHÔNG dùng <record model="ir.ui.menu"> -->
-    <menuitem id="menu_zed_picking_consume" parent="menu_zed_root" sequence="20"/>
+    <!-- Phiếu tiêu hao (đã có action_zed_picking_consume ở file khác) -->
+    <!-- <menuitem id="menu_zed_picking_consume_root"
+              name="Phiếu tiêu hao"
+              parent="menu_zed_root"
+              action="action_zed_picking_consume"
+              sequence="20"/> -->
 
-    <!-- Ẩn menu cũ nếu từng đặt ở Inventory (tránh trùng lặp). 
-         Lưu ý: thay 'menu_zed_inventory_root' đúng XML ID menu mà bạn muốn ẩn. -->
-    <menuitem id="menu_zed_inventory_root" groups="base.group_no_one"/>
-
-    <!-- (B) Khai báo actions + menu tập trung dưới The Zed -->
-
-    <!-- Công thức pha chế -->
-    <record id="action_zed_recipe" model="ir.actions.act_window">
-      <field name="name">Công thức</field>
-      <field name="res_model">zed.recipe</field>
+    <!-- Công thức (BoM) -->
+    <record id="action_zed_bom" model="ir.actions.act_window">
+      <field name="name">Công thức (BoM)</field>
+      <field name="res_model">mrp.bom</field>
       <field name="view_mode">list,form</field>
     </record>
-    <menuitem id="menu_zed_recipe"
-              name="Công thức"
+    <menuitem id="menu_zed_bom"
+              name="Công thức (BoM)"
               parent="menu_zed_root"
-              action="action_zed_recipe"
+              action="action_zed_bom"
               sequence="10"/>
 
     <!-- Đơn hàng POS -->
@@ -45,8 +41,6 @@
       <field name="name">Khách hàng</field>
       <field name="res_model">res.partner</field>
       <field name="view_mode">list,form</field>
-      <!-- Có thể thêm domain nếu muốn chỉ khách hàng:
-           <field name="domain">[('customer_rank','>',0)]</field> -->
     </record>
     <menuitem id="menu_zed_contacts"
               name="Khách hàng"
@@ -65,6 +59,23 @@
               parent="menu_zed_root"
               action="action_zed_employees"
               sequence="50"/>
+
+    <!-- 🔹 Action Báo cáo tiêu hao (KHAI BÁO TRƯỚC MENU để tránh missing external id) -->
+    <record id="action_zed_consumption_report" model="ir.actions.act_window">
+      <field name="name">Báo cáo tiêu hao</field>
+      <field name="res_model">zed.consumption.report</field>
+      <field name="view_mode">list,graph,pivot</field>
+      <!-- nếu bạn đã có search view riêng, thêm:
+      <field name="search_view_id" ref="view_zed_consumption_report_search"/>
+      -->
+    </record>
+
+    <!-- Menu Báo cáo tiêu hao -->
+    <menuitem id="menu_zed_consumption_report"
+              name="Báo cáo tiêu hao"
+              parent="menu_zed_root"
+              action="action_zed_consumption_report"
+              sequence="60"/>
 
   </data>
 </odoo>

@@ -1,9 +1,45 @@
-id,name,product_tmpl_id/id
-pp_coffee_beans,Hạt cà phê,product_coffee_beans
-pp_milk_condensed,Sữa đặc,product_milk_condensed
-pp_ice,Đá viên,product_ice
-pp_tea_black,Trà đen,product_tea_black
-pp_jam_peach,Mứt đào,product_jam_peach
-pp_lemongrass,Sả cây,product_lemongrass
-pp_matcha_powder,Bột matcha,product_matcha_powder
-pp_milk_fresh,Sữa tươi,product_milk_fresh
+id,product_tmpl_id/id,active,combination_indices
+pp_ing_rich_lun,zed_custom.pt_ing_rich_lun,1,
+pp_ing_rich_cao,zed_custom.pt_ing_rich_cao,1,
+pp_ing_base_kem,zed_custom.pt_ing_base_kem,1,
+pp_ing_muc_dau,zed_custom.pt_ing_muc_dau,1,
+pp_ing_ehot,zed_custom.pt_ing_ehot,1,
+pp_ing_nuoc_loc,zed_custom.pt_ing_nuoc_loc,1,
+pp_ing_duong_trang,zed_custom.pt_ing_duong_trang,1,
+pp_ing_tran_chau_den_song,zed_custom.pt_ing_tran_chau_den_song,1,
+pp_ing_duong_den,zed_custom.pt_ing_duong_den,1,
+pp_ing_tra_nhai,zed_custom.pt_ing_tra_nhai,1,
+pp_ing_hong_tra,zed_custom.pt_ing_hong_tra,1,
+pp_ing_tra_mang_cau,zed_custom.pt_ing_tra_mang_cau,1,
+pp_ing_tra_thai_xanh,zed_custom.pt_ing_tra_thai_xanh,1,
+pp_ing_bot_beo,zed_custom.pt_ing_bot_beo,1,
+pp_ing_sua_dac,zed_custom.pt_ing_sua_dac,1,
+pp_ing_tra_dao,zed_custom.pt_ing_tra_dao,1,
+pp_ing_monin_dao,zed_custom.pt_ing_monin_dao,1,
+pp_ing_cafe,zed_custom.pt_ing_cafe,1,
+pp_ing_cot_dua,zed_custom.pt_ing_cot_dua,1,
+pp_sf_kem_muoi,zed_custom.pt_sf_kem_muoi,1,
+pp_ing_quat_trai,zed_custom.pt_ing_quat_trai,1,
+pp_ing_sua_chua,zed_custom.pt_ing_sua_chua,1,
+pp_ing_tran_chau_den_chin,zed_custom.pt_ing_tran_chau_den_chin,1,
+pp_ing_dau_trai,zed_custom.pt_ing_dau_trai,1,
+pp_sf_base_tra_nhai,zed_custom.pt_sf_base_tra_nhai,1,
+pp_ing_nuoc_cot_chanh,zed_custom.pt_ing_nuoc_cot_chanh,1,
+pp_ing_nuoc_cot_quat,zed_custom.pt_ing_nuoc_cot_quat,1,
+pp_ing_nha_dam,zed_custom.pt_ing_nha_dam,1,
+pp_ing_cot_chanh_day,zed_custom.pt_ing_cot_chanh_day,1,
+pp_sf_base_tra_dao,zed_custom.pt_sf_base_tra_dao,1,
+pp_ing_monin_bac_ha,zed_custom.pt_ing_monin_bac_ha,1,
+pp_sf_base_hong_tra,zed_custom.pt_sf_base_hong_tra,1,
+pp_ing_xi_muoi,zed_custom.pt_ing_xi_muoi,1,
+pp_ing_muc_viet_quat,zed_custom.pt_ing_muc_viet_quat,1,
+pp_ing_muc_dua_luoi,zed_custom.pt_ing_muc_dua_luoi,1,
+pp_ing_ding_dong,zed_custom.pt_ing_ding_dong,1,
+pp_ing_trai_vai,zed_custom.pt_ing_trai_vai,1,
+pp_ing_sinh_to_xoai,zed_custom.pt_ing_sinh_to_xoai,1,
+pp_ing_cam_trai,zed_custom.pt_ing_cam_trai,1,
+pp_sf_base_thai_xanh,zed_custom.pt_sf_base_thai_xanh,1,
+pp_ing_bot_matcha,zed_custom.pt_ing_bot_matcha,1,
+pp_sf_kem_dau,zed_custom.pt_sf_kem_dau,1,
+pp_ing_bot_mix,zed_custom.pt_ing_bot_mix,1,
+pp_ing_cacao_bot,zed_custom.pt_ing_cacao_bot,1,

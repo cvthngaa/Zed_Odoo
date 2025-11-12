@@ -19,9 +19,11 @@
         "hr",             # nhân viên/barista
         "crm",            # nếu dùng loyalty/khách hàng
     ],
+    "post_init_hook": "post_init_assign_variant_xmlids",
     "data": [
         "security/ir.model.access.csv",
         "views/menu_root.xml",
+        'views/stock_picking_views.xml',
         'views/hr_employee_views.xml',
         'views/res_partner_views.xml',
         'views/pos_order_views.xml',
@@ -29,14 +31,20 @@
         'views/product_search_views.xml',
         'views/zed_recipe_views.xml',
         'views/stock_move_views.xml',
-        'views/stock_picking_views.xml',
-        'data/product.template.csv',
-        # 'data/product.product.csv',
-        'data/zed.recipe.csv',
-        'data/zed.recipe.line.csv',
-        'data/res.partner.csv',
+        'views/zed_consumption_report_views.xml',
+        'views/zed_bom_menu.xml',
         'data/hr.employee.csv',
-
+        'data/res.partner.csv',
+        'data/product.attribute.csv',
+        'data/product.attribute.value.csv',
+        'data/product.template.csv',                    # file của bạn
+        'data/product.template.attribute.line.csv',
+        # 'data/product.product.csv',
+        'data/mrp.bom.csv',                             # file của bạn (đang trỏ template)
+        'data/mrp.bom.line.csv',                  # dùng file FIX này thay cho file cũ
+  # Khi sẵn sàng chạy theo biến thể:
+        # 'data/mrp.bom.per_variant.todo.csv',
+        # 'data/mrp.bom.line.per_variant.todo.csv',
         # 'data/pos.config.csv',  
         # 'data/pos.session.csv',
         # 'data/pos.order.csv',

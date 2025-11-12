@@ -1,0 +1,11 @@
+id,name,attribute_id/id
+attval_ngot_it,Ít,att_do_ngot
+attval_ngot_vua,Vừa,att_do_ngot
+attval_ngot_nhieu,Nhiều,att_do_ngot
+attval_tra_nhat,Nhạt,att_do_tra
+attval_tra_vua,Vừa,att_do_tra
+attval_tra_dam,Đậm,att_do_tra
+attval_da_khong,Không,att_da
+attval_da_it,Ít,att_da
+attval_da_vua,Vừa,att_da
+attval_da_nhieu,Nhiều,att_da

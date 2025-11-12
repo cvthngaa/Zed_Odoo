@@ -1,12 +1,93 @@
-id,name,type,uom_id/id,list_price
-product_cafe_sua,Cà phê sữa đá,consu,uom.product_uom_unit,30000
-product_tra_dao,Trà đào cam sả,consu,uom.product_uom_unit,35000
-product_matcha,Matcha đá xay,consu,uom.product_uom_unit,40000
-product_coffee_beans,Hạt cà phê,consu,uom.product_uom_gram,0
-product_milk_condensed,Sữa đặc,consu,uom.product_uom_unit,0
-product_ice,Đá viên,consu,uom.product_uom_gram,0
-product_tea_black,Trà đen,consu,uom.product_uom_gram,0
-product_jam_peach,Mứt đào,consu,uom.product_uom_gram,0
-product_lemongrass,Sả cây,consu,uom.product_uom_gram,0
-product_matcha_powder,Bột matcha,consu,uom.product_uom_gram,0
-product_milk_fresh,Sữa tươi,consu,uom.product_uom_unit,0
+id,name,type,uom_id/id,sale_ok,purchase_ok
+pt_ing_cafe,Cốt Cà Phê,consu,uom.product_uom_litre,False,True
+pt_ing_sua_tuoi,Sữa Tươi,consu,uom.product_uom_litre,False,True
+pt_ing_sua_dac,Sữa Đặc,consu,uom.product_uom_litre,False,True
+pt_ing_cot_dua,Cốt Dừa,consu,uom.product_uom_litre,False,True
+pt_ing_duong_trang,Đường Trắng (siro),consu,uom.product_uom_litre,False,True
+pt_ing_duong_den,Đường Đen (siro),consu,uom.product_uom_litre,False,True
+pt_ing_mat_ong,Mật Ong,consu,uom.product_uom_litre,False,True
+pt_ing_nuoc_loc,Nước Lọc,consu,uom.product_uom_litre,False,True
+pt_ing_tra_nhai,Trà Nhài (cốt),consu,uom.product_uom_litre,False,True
+pt_ing_hong_tra,Hồng Trà (cốt),consu,uom.product_uom_litre,False,True
+pt_ing_tra_mang_cau,Trà Mãng Cầu (cốt),consu,uom.product_uom_litre,False,True
+pt_ing_tra_thai_xanh,Trà Thái Xanh (cốt),consu,uom.product_uom_litre,False,True
+pt_ing_tra_dao,Trà Đào (cốt),consu,uom.product_uom_litre,False,True
+pt_ing_nuoc_cot_chanh,Nước Cốt Chanh,consu,uom.product_uom_litre,False,True
+pt_ing_nuoc_cot_quat,Nước Cốt Tắc,consu,uom.product_uom_litre,False,True
+pt_ing_monin_bac_ha,Monin Bạc Hà,consu,uom.product_uom_litre,False,True
+pt_ing_monin_dao,Monin Đào,consu,uom.product_uom_litre,False,True
+pt_ing_sinh_to_xoai,Sinh Tố Xoài,consu,uom.product_uom_litre,False,True
+pt_ing_muc_dau,Mứt Dâu,consu,uom.product_uom_litre,False,True
+pt_ing_muc_viet_quat,Mứt Việt Quất,consu,uom.product_uom_litre,False,True
+pt_ing_muc_dua_luoi,Mứt Dưa Lưới,consu,uom.product_uom_litre,False,True
+pt_ing_siro_sam_dua,Siro Sâm Dứa,consu,uom.product_uom_litre,False,True
+pt_ing_ding_dong,Siro Ding Dong,consu,uom.product_uom_litre,False,True
+pt_ing_rich_lun,Rich Lùn,consu,uom.product_uom_litre,False,True
+pt_ing_rich_cao,Rich Cao,consu,uom.product_uom_litre,False,True
+pt_ing_base_kem,Base Kem,consu,uom.product_uom_litre,False,True
+pt_ing_ehot,Ehot,consu,uom.product_uom_litre,False,True
+pt_ing_rick,Rick,consu,uom.product_uom_litre,False,True
+pt_ing_cot_chanh_day,Cốt Chanh Dây,consu,uom.product_uom_litre,False,True
+pt_ing_sua_chua,Sữa Chua Hũ,consu,uom.product_uom_unit,False,True
+pt_ing_cacao_bot,Bột Cacao,consu,uom.product_uom_gram,False,True
+pt_ing_bot_beo,Bột Béo,consu,uom.product_uom_gram,False,True
+pt_ing_bot_mix,Bột Mix,consu,uom.product_uom_gram,False,True
+pt_ing_bot_matcha,Bột Matcha,consu,uom.product_uom_gram,False,True
+pt_ing_quat_trai,Tắc (trái),consu,uom.product_uom_unit,False,True
+pt_ing_cam_trai,Cam (trái),consu,uom.product_uom_unit,False,True
+pt_ing_dau_trai,Dâu (trái),consu,uom.product_uom_unit,False,True
+pt_ing_xi_muoi,Xí Muội (viên),consu,uom.product_uom_unit,False,True
+pt_ing_trai_vai,Vải (trái),consu,uom.product_uom_unit,False,True
+pt_ing_tran_chau_den_song,Trân Châu Đen (sống),consu,uom.product_uom_gram,False,True
+pt_ing_tran_chau_den_chin,Trân Châu Đen (đã nấu),consu,uom.product_uom_gram,False,True
+pt_ing_nha_dam,Nha Đam,consu,uom.product_uom_gram,False,True
+pt_ing_cacao_rac,Bột Cacao Rắc,consu,uom.product_uom_gram,False,True
+pt_sf_kem_dau,Kem Dâu,consu,uom.product_uom_litre,False,True
+pt_sf_kem_muoi,Kem Muối,consu,uom.product_uom_litre,False,True
+pt_sf_nuoc_duong,Nước Đường,consu,uom.product_uom_litre,False,True
+pt_sf_tran_chau_den,Trân Châu Đen (đã nấu),consu,uom.product_uom_gram,False,True
+pt_sf_base_tra_nhai,Base Trà Nhài,consu,uom.product_uom_litre,False,True
+pt_sf_base_hong_tra,Base Hồng Trà,consu,uom.product_uom_litre,False,True
+pt_sf_base_tra_mang_cau,Base Trà Mãng Cầu,consu,uom.product_uom_litre,False,True
+pt_sf_base_thai_xanh,Base Trà Thái Xanh,consu,uom.product_uom_litre,False,True
+pt_sf_base_tra_dao,Base Trà Đào,consu,uom.product_uom_litre,False,True
+pt_sf_cafe_phin,Cốt Cà Phê Phin,consu,uom.product_uom_litre,False,True
+pt_fp_caphe_den,Cà Phê Đen,consu,uom.product_uom_unit,True,False
+pt_fp_caphe_den_sg,Cà Phê Đen Sài Gòn,consu,uom.product_uom_unit,True,False
+pt_fp_caphe_sua,Cà Phê Sữa,consu,uom.product_uom_unit,True,False
+pt_fp_caphe_sua_sg,Cà Phê Sữa Sài Gòn,consu,uom.product_uom_unit,True,False
+pt_fp_bac_xiu_da,Bạc Xỉu Đá,consu,uom.product_uom_unit,True,False
+pt_fp_caphe_muoi,Cà Phê Muối,consu,uom.product_uom_unit,True,False
+pt_fp_caphe_dua,Cà Phê Dừa,consu,uom.product_uom_unit,True,False
+pt_fp_sua_chua_lac_tt,Sữa Chua Lắc Truyền Thống,consu,uom.product_uom_unit,True,False
+pt_fp_sua_chua_tc_dd,Sữa Chua Trân Châu Đường Đen,consu,uom.product_uom_unit,True,False
+pt_fp_sua_chua_lac_cac_vi,Sữa Chua Lắc Các Vị,consu,uom.product_uom_unit,True,False
+pt_fp_sua_chua_lac_dau,Sữa Chua Lắc Dâu,consu,uom.product_uom_unit,True,False
+pt_fp_tra_chanh_nhua,Trà Chanh (Ly Nhựa),consu,uom.product_uom_unit,True,False
+pt_fp_tra_chanh_size_l,Trà Chanh (Size L),consu,uom.product_uom_unit,True,False
+pt_fp_kim_quat_nha_dam,Kim Quất Nha Đam,consu,uom.product_uom_unit,True,False
+pt_fp_chanh_tuoi_da,Chanh Tươi Đá,consu,uom.product_uom_unit,True,False
+pt_fp_chanh_day_lac_sua,Chanh Dây Lắc Sữa,consu,uom.product_uom_unit,True,False
+pt_fp_tra_dao_tt,Trà Đào Truyền Thống,consu,uom.product_uom_unit,True,False
+pt_fp_tra_quat_bac_ha,Trà Quất Lắc Bạc Hà,consu,uom.product_uom_unit,True,False
+pt_fp_tra_quat_xi_muoi,Trà Quất Xí Muội,consu,uom.product_uom_unit,True,False
+pt_fp_chanh_tuoi_xi_muoi,Chanh Tươi Xí Muội,consu,uom.product_uom_unit,True,False
+pt_fp_tra_viet_quat_lac_sua,Trà Việt Quất Lắc Sữa,consu,uom.product_uom_unit,True,False
+pt_fp_tra_dua_luoi_lac_sua,Trà Dưa Lưới Lắc Sữa,consu,uom.product_uom_unit,True,False
+pt_fp_tra_vai,Trà Vải,consu,uom.product_uom_unit,True,False
+pt_fp_tra_mang_cau,Trà Mãng Cầu,consu,uom.product_uom_unit,True,False
+pt_fp_tra_xoai_cam_my,Trà Xoài Cam Mỹ,consu,uom.product_uom_unit,True,False
+pt_fp_tra_thanh_xuan,Trà Thanh Xuân,consu,uom.product_uom_unit,True,False
+pt_fp_tra_dao_cam_sa,Trà Đào Cam Sả,consu,uom.product_uom_unit,True,False
+pt_fp_tra_viet_quat_nha_dam,Trà Việt Quất Nha Đam,consu,uom.product_uom_unit,True,False
+pt_fp_cam_dao_dua_luoi,Cam Đào Dưa Lưới,consu,uom.product_uom_unit,True,False
+pt_fp_sua_tuoi_tc_dd,Sữa Tươi Trân Châu Đường Đen,consu,uom.product_uom_unit,True,False
+pt_fp_sua_tuoi_tc_bac_ha,Sữa Tươi Trân Châu Bạc Hà,consu,uom.product_uom_unit,True,False
+pt_fp_sua_dua_nhiet_doi,Sữa Dừa Nhiệt Đới,consu,uom.product_uom_unit,True,False
+pt_fp_sam_dua_lac_tc_trang,Sâm Dứa Lắc Trân Châu Trắng,consu,uom.product_uom_unit,True,False
+pt_fp_cot_dua_xoai,Cốt Dừa Xoài (Đá Xay),consu,uom.product_uom_unit,True,False
+pt_fp_cot_dua_cacao,Cốt Dừa Cacao (Đá Xay),consu,uom.product_uom_unit,True,False
+pt_fp_tra_sua_thai_xanh,Trà Sữa Thái Xanh,consu,uom.product_uom_unit,True,False
+pt_fp_matcha_da_xay,Matcha Đá Xay,consu,uom.product_uom_unit,True,False
+pt_fp_dau_lac_sua,Dâu Lắc Sữa,consu,uom.product_uom_unit,True,False
+pt_fp_da_xay_viet_quat,Đá Xay Việt Quất,consu,uom.product_uom_unit,True,False
